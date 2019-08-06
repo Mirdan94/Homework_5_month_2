@@ -6,20 +6,19 @@ public class Guide extends Thread  {
 
 
 
-    private static int tourist;
+    private static int guide;
     private static CountDownLatch LATCH;
 
-    public Guide(int tourist) {
-        this.tourist = tourist;
+    public Guide(int guide) {
+        this.guide = guide;
     }
 
     public void run() {
         try {
-            System.out.printf("Нашелся турист %d\n", tourist);
+            System.out.printf("Нашелся турист %d\n", guide);
             LATCH.countDown();
             LATCH.await();
 
-            System.out.printf("Все туристы наглись!");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

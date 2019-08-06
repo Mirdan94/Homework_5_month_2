@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
 public class Main {
@@ -12,8 +13,8 @@ public class Main {
         LATCH = new CountDownLatch(touristsNumber + 1);
         for (int i = 1; i <= touristsNumber; i++) {
 
-            Guide guide = new Guide (i);
-            guide.start();
+            Tourist tourist = new Tourist (i);
+            tourist.start();
         }
 while (LATCH.getCount() > 1) {
     Thread.sleep(1000);
